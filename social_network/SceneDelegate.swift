@@ -6,18 +6,47 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    static weak var shared: SceneDelegate?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        Self.shared = self
+        setupRootControllerIfNeeded()
         guard let _ = (scene as? UIWindowScene) else { return }
     }
+
+    func setupRootControllerIfNeeded() {
+        FirebaseAuthManager.shared.checkUserLoggedIn { result in
+            switch result {
+            case .success(()):
+                let rootViewController = self.getRootViewControllerForValidUser()
+                self.window?.rootViewController = rootViewController
+                self.window?.makeKeyAndVisible()
+            case .failure:
+                let rootViewController = self.getRootViewControllerForInvalidUser()
+                self.window?.rootViewController = rootViewController
+                self.window?.makeKeyAndVisible()
+            }
+       }
+
+    }
+
+    func getRootViewControllerForInvalidUser() -> UIViewController {
+        let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+    }
+
+    func getRootViewControllerForValidUser() -> UIViewController {
+        let storyboard = UIStoryboard(name: "HomeView", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+    }
+
+
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
