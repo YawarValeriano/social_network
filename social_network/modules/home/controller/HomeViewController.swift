@@ -12,14 +12,13 @@ class HomeViewController: UIViewController {
     let firebaseManager = FirebaseManager.shared
 
     @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var logOutButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         FirebaseUserManager.shared.getCurrentUser { result in
             switch result {
             case.success(let user):
-                self.userName.text = user.name
+                self.userName.text = user.username
             case.failure(let error):
                 print(error)
             }

@@ -43,7 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func getRootViewControllerForValidUser() -> UIViewController {
         let storyboard = UIStoryboard(name: "HomeView", bundle: nil)
-        return storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+        return storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
     }
 
 
