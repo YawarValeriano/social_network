@@ -8,6 +8,7 @@ enum FirebaseErrors: Error {
 
 enum FirebaseCollections: String {
     case users
+    case posts
 }
 
 class FirebaseManager {

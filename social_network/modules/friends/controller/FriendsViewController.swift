@@ -1,20 +1,20 @@
 //
-//  TabBarViewController.swift
+//  FriendsViewController.swift
 //  social_network
 //
-//  Created by admin on 7/12/22.
+//  Created by admin on 7/14/22.
 //
 
 import UIKit
 
-class TabBarViewController: UITabBarController {
+class FriendsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
+
 
     /*
     // MARK: - Navigation

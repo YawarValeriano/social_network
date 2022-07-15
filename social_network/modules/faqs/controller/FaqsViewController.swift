@@ -1,20 +1,20 @@
 //
-//  BaseViewController.swift
+//  FaqsViewController.swift
 //  social_network
 //
-//  Created by admin on 7/12/22.
+//  Created by admin on 7/14/22.
 //
 
 import UIKit
 
-class BaseViewController: UIViewController {
+class FaqsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
+
 
     /*
     // MARK: - Navigation

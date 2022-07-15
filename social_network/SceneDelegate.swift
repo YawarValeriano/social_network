@@ -26,27 +26,65 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             case .success(()):
                 let rootViewController = self.getRootViewControllerForValidUser()
                 self.window?.rootViewController = rootViewController
-                self.window?.makeKeyAndVisible()
             case .failure:
                 let rootViewController = self.getRootViewControllerForInvalidUser()
                 self.window?.rootViewController = rootViewController
-                self.window?.makeKeyAndVisible()
             }
+            self.window?.makeKeyAndVisible()
        }
 
     }
 
     func getRootViewControllerForInvalidUser() -> UIViewController {
-        let storyboard = UIStoryboard(name: "LoginView", bundle: nil)
-        return storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        createNavController(for: LoginViewController(), title: "Sing In", image: UIImage(systemName: "newspaper.fill")!)
     }
 
     func getRootViewControllerForValidUser() -> UIViewController {
-        let storyboard = UIStoryboard(name: "HomeView", bundle: nil)
-        return storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
+        // Create TabBarVC
+        let tabBarVC = UITabBarController()
+        tabBarVC.view.backgroundColor = .systemBackground
+        UITabBar.appearance().barTintColor = .systemBackground
+        tabBarVC.tabBar.tintColor = UIColor(named: "MainColor")
+
+        // Add VCs to TabBarVC
+        tabBarVC.viewControllers = [
+            createNavController(for: HomeViewController(), title: "Home", image: UIImage(systemName: "house.fill")!),
+
+            createNavController(for: FriendsViewController(), title: "Friends", image: UIImage(systemName: "person.2.fill")!),
+
+            createNavController(for: ChatViewController(), title: "Chat", image: UIImage(systemName: "message.fill")!),
+
+            createNavController(for: FaqsViewController(), title: "FAQ's", image: UIImage(systemName: "questionmark.diamond.fill")!)
+        ]
+
+        return tabBarVC
     }
 
+    fileprivate func createNavController(for rootViewController: UIViewController,
+                                         title: String,
+                                         image: UIImage) -> UIViewController {
+        let navController = UINavigationController(rootViewController: rootViewController)
+        navController.tabBarItem.title = title
+        navController.tabBarItem.image = image
 
+        navController.navigationBar.tintColor = .white
+
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = UIColor(named: "MainColor")
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+        navController.navigationBar.standardAppearance = appearance
+        navController.navigationBar.scrollEdgeAppearance = appearance
+
+        navController.modalPresentationStyle = .overFullScreen
+
+
+        rootViewController.navigationItem.title = title
+
+
+        return navController
+    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

@@ -2,25 +2,23 @@
 //  LoginViewController.swift
 //  social_network
 //
-//  Created by admin on 7/6/22.
+//  Created by admin on 7/14/22.
 //
 
 import UIKit
-import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    
+    @IBOutlet weak var passwordTextField: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
     @IBAction func loginPressed(_ sender: Any) {
-        let email = emailTextField.text!
-        let password = passwordTextField.text!
+        guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         LoginViewModel.shared.login(email: email, password: password) { result in
             switch result {
             case.failure(let error):
