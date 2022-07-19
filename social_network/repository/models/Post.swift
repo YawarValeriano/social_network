@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
-struct Post: Codable, BaseModel {
-    var id: String
+struct Post: Codable {
+    @DocumentID var id: String?
     let	userId: String
     let urlMovie: String
-    let urlImage: String
+    let urlImage: String?
     let description: String
     let categoryId: String
-//    let createdAt: Date
+    let createdAt: Date
 }

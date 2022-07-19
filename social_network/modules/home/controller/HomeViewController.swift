@@ -12,13 +12,13 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var postTableView: UITableView!
 
-    var posts = [Post]()
     let firebaseManager = FirebaseManager.shared
+    var homeViewModel = HomeViewModel()
 
     override func viewDidLoad() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(showOptionsAlert))
         setupTable()
-        initData()
+//        initData()
 
     }
 
@@ -28,10 +28,9 @@ class HomeViewController: UIViewController {
     }
 
     func initData() {
-        HomeViewModel.shared.getPosts { result in
+        homeViewModel.getPosts { result in
             switch result {
-            case.success(let posts):
-                self.posts = posts
+            case.success(()):
                 self.postTableView.reloadData()
             case.failure(let error):
                 ErrorHandler.shared.showError(withDescription: error.localizedDescription, viewController: self)
@@ -43,12 +42,15 @@ class HomeViewController: UIViewController {
         postTableView.register(UINib(nibName: PostTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: PostTableViewCell.identifier)
         postTableView.delegate = self
         postTableView.dataSource = self
+//        postTableView.rowHeight = UITableView.automaticDimension
+//        postTableView.estimatedRowHeight = 300
+
     }
 
     @IBAction func addPostButton(_ sender: Any) {
         let postId = firebaseManager.getDocID(forCollection: .posts)
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        let post = Post(id: postId, userId: uid, urlMovie: "Url", urlImage: "Rurl", description: "this is a desc", categoryId: "3")
+        let post = Post(id: postId, userId: uid, urlMovie: "Url", urlImage: "Rurl", description: "this is a desc", categoryId: "3", createdAt: Date())
         firebaseManager.addDocument(document: post, collection: .posts) { result in
             switch result {
             case .success(let post):
@@ -90,12 +92,14 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        posts.count
+        homeViewModel.numberOfItemsInSsction
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as? PostTableViewCell else { return UITableViewCell() }
-
+        let post = homeViewModel.getPostBy(index: indexPath.row)
+        cell.post = post
+//        cell.setCellData(post)
         return cell
     }
 

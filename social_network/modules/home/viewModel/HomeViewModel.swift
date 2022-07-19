@@ -8,16 +8,26 @@
 import Foundation
 
 class HomeViewModel {
-    static let shared = HomeViewModel()
 
-    func getPosts(completion: @escaping(Result<[Post], Error>) -> Void) {
+    private var posts = [Post]()
+
+    var numberOfItemsInSsction: Int {
+        posts.count
+    }
+
+    func getPosts(completion: ((Result<Void, Error>) -> Void)?) {
         FirebaseManager.shared.getDocuments(type: Post.self, forCollection: .posts) { result in
             switch result {
-            case.success(let posts):
-                completion(.success(posts))
+            case.success(let postsResult):
+                self.posts = postsResult
+                completion?(.success(()))
             case.failure(let error):
-                completion(.failure(error))
+                completion?(.failure(error))
             }
         }
+    }
+
+    func getPostBy(index: Int) -> Post {
+        return posts[index]
     }
 }
