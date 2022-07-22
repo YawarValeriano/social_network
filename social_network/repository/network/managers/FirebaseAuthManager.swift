@@ -41,7 +41,7 @@ class FirebaseAuthManager {
 
                 let user = User(id: uid!, username: username, city: city, userStatus: userStatus)
 
-                FirebaseManager.shared.addDocument(document: user, collection: .users) { result in
+                FirebaseManager.shared.addDocument(document: user, docId: uid!, collection: .users) { result in
                     switch result {
                     case.success(let user):
                         completion(.success(user))

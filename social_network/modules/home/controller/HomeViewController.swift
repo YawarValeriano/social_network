@@ -48,17 +48,9 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func addPostButton(_ sender: Any) {
-        let postId = firebaseManager.getDocID(forCollection: .posts)
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        let post = Post(id: postId, userId: uid, urlMovie: "Url", urlImage: "Rurl", description: "this is a desc", categoryId: "3", createdAt: Date())
-        firebaseManager.addDocument(document: post, collection: .posts) { result in
-            switch result {
-            case .success(let post):
-                print("Success", post)
-            case .failure(let error):
-                print("Error", error)
-            }
-        }
+        let vc = PostDetailViewController()
+        vc.createNewPost = true
+        show(vc, sender: nil)
     }
     
     @objc
@@ -90,6 +82,8 @@ class HomeViewController: UIViewController {
     }
 }
 
+
+// MARK: UITableView delegate
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         homeViewModel.numberOfItemsInSsction
@@ -99,11 +93,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as? PostTableViewCell else { return UITableViewCell() }
         let post = homeViewModel.getPostBy(index: indexPath.row)
         cell.post = post
-//        cell.setCellData(post)
+        cell.setTableCell()
         return cell
     }
-
-    
-
-    
 }

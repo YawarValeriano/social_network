@@ -35,25 +35,26 @@ class PostTableViewCell: UITableViewCell {
         borderView.layer.borderWidth = 1
         borderView.layer.cornerRadius = 5
 
-        DispatchQueue.main.async {
-            guard let cellPost = self.post else { return }
-            self.userNameLabel.text = "User name"
-            self.descriptionLabel.text = cellPost.description
-            self.postDateLabel.text = cellPost.createdAt.toString(stringFormat: "MMM d, yyyy")
-            if let image = cellPost.urlImage, let url = URL(string: image) {
-                self.postImageView.image = ImageManager.shared.getUIImage(formURL: url)
-            } else {
-                self.postImageView.isHidden = true
-                self.imageHeight.constant = 0
-                self.topStackConstraint.constant = 0
-            }
-        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+
+    func setTableCell() {
+        guard let cellPost = self.post else { return }
+        self.userNameLabel.text = "User name"
+        self.descriptionLabel.text = cellPost.description
+        self.postDateLabel.text = cellPost.createdAt.toString(stringFormat: "MMM d, yyyy")
+        if let image = cellPost.urlImage, let url = URL(string: image) {
+            self.postImageView.image = ImageManager.shared.getUIImage(formURL: url)
+        } else {
+            self.postImageView.isHidden = true
+            self.imageHeight.constant = 0
+            self.topStackConstraint.constant = 0
+        }
     }
 
 }
