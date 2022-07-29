@@ -39,4 +39,20 @@ class FirebaseUserManager {
             }
         }
     }
+
+    func getUserPosts(completion: @escaping ( Result<[Post], Error>) -> Void  ) {
+        let user = Auth.auth().currentUser?.uid ?? ""
+        db.collection(FirebaseCollections.posts.rawValue).whereField("userId", isEqualTo: user).order(by: "createdAt", descending: true).addSnapshotListener { querySnapshot, error in
+            guard error == nil else { return completion(.failure(error!)) }
+            guard let documents = querySnapshot?.documents else { return completion(.success([])) }
+
+            var items = [Post]()
+            for document in documents {
+                if let item = try? document.data(as: Post.self) {
+                    items.append(item)
+                }
+            }
+            completion(.success(items))
+        }
+    }
 }

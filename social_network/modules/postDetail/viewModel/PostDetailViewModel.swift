@@ -26,7 +26,7 @@ class PostDetailViewModel {
             firebaseManager.uploadFile(fileData: image, storageReference: photoRef) { result in
                 switch result {
                 case.success(let downloadURL):
-                    let post = Post(userId: uid, urlMovie: urlMovie, urlImage: downloadURL, description: description, category: category, createdAt: Date())
+                    let post = Post(userId: uid, urlMovie: urlMovie, urlImage: downloadURL, description: description, category: category)
                     self.firebaseManager.addDocument(document: post, docId: docId, collection: .posts) { result in
                         switch result {
                         case .success(let post):
@@ -42,7 +42,7 @@ class PostDetailViewModel {
             }
 
         } else {
-            let post = Post(userId: uid, urlMovie: urlMovie, urlImage: nil, description: description, category: category, createdAt: Date())
+            let post = Post(userId: uid, urlMovie: urlMovie, urlImage: nil, description: description, category: category)
             firebaseManager.addDocument(document: post, docId: docId, collection: .posts) { result in
                 switch result {
                 case .success(let post):
@@ -53,9 +53,43 @@ class PostDetailViewModel {
                 }
             }
         }
+    }
 
-
-
+    func updatePost(documentId: String, urlMovie: String?, description: String, category: CategoryType,
+            oldUrlImage: String?, hasChangedImage: Bool, imageData: Data, completion: ((Result<Void, Error>) -> Void)?) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        if hasChangedImage {
+            let storageRef = storage.reference()
+            let photoRef = storageRef.child("\(FirebaseCollections.posts.rawValue)/\(documentId).jpeg")
+            firebaseManager.uploadFile(fileData: imageData, storageReference: photoRef) { result in
+                switch result {
+                case.success(let downloadURL):
+                    let post = Post(id: documentId, userId: uid, urlMovie: urlMovie, urlImage: downloadURL, description: description, category: category)
+                    self.firebaseManager.updateDocument(document: post, collection: .posts) { result in
+                        switch result {
+                        case .success(let post):
+                            print("Success", post)
+                            completion?(.success(()))
+                        case .failure(let error):
+                            completion?(.failure(error))
+                        }
+                    }
+                case.failure(let error):
+                    completion?(.failure(error))
+                }
+            }
+        } else {
+            let post = Post(id: documentId, userId: uid, urlMovie: urlMovie, urlImage: oldUrlImage, description: description, category: category)
+            firebaseManager.updateDocument(document: post, collection: .posts) { result in
+                switch result {
+                case .success(let post):
+                    print("Success", post)
+                    completion?(.success(()))
+                case .failure(let error):
+                    completion?(.failure(error))
+                }
+            }
+        }
     }
 
 }

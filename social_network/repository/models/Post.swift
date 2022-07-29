@@ -7,13 +7,14 @@
 
 import Foundation
 import FirebaseFirestoreSwift
+import Firebase
 
-struct Post: Codable {
+struct Post: Codable, BaseModel {
     @DocumentID var id: String?
     var	userId: String
     var urlMovie: String?
     var urlImage: String?
     var description: String
     var category: CategoryType
-    var createdAt: Date
+    @ServerTimestamp var createdAt: Timestamp?
 }

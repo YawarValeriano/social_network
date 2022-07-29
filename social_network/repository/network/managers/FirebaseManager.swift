@@ -45,16 +45,14 @@ class FirebaseManager {
     }
     
     func listenCollectionChanges<T: Decodable>(type: T.Type, collection: FirebaseCollections, completion: @escaping ( Result<[T], Error>) -> Void  ) {
-        db.collection(collection.rawValue).addSnapshotListener { querySnapshot, error in
+        db.collection(collection.rawValue).order(by: "createdAt", descending: true).addSnapshotListener { querySnapshot, error in
             guard error == nil else { return completion(.failure(error!)) }
             guard let documents = querySnapshot?.documents else { return completion(.success([])) }
             
             
             var items = [T]()
-            let json = JSONDecoder()
             for document in documents {
-                if let data = try? JSONSerialization.data(withJSONObject: document.data(), options: []),
-                   let item = try? json.decode(type, from: data) {
+                if let item = try? document.data(as: type) {
                     items.append(item)
                 }
             }
@@ -98,10 +96,10 @@ class FirebaseManager {
 
     
     
-    func updateDocument<T: Encodable>(document: T, collection: FirebaseCollections, completion: @escaping ( Result<T, Error>) -> Void  ) {
+    func updateDocument<T: Encodable & BaseModel>(document: T, collection: FirebaseCollections, completion: @escaping ( Result<T, Error>) -> Void  ) {
         guard let itemDict = document.dict else { return completion(.failure(FirebaseErrors.ErrorToDecodeItem)) }
         
-        db.collection(collection.rawValue).document().setData(itemDict) { error in
+        db.collection(collection.rawValue).document(document.id!).updateData(itemDict) { error in
             if let error = error {
                 completion(.failure(error))
             } else {

@@ -16,7 +16,7 @@ class HomeViewModel {
     }
 
     func getPosts(completion: ((Result<Void, Error>) -> Void)?) {
-        FirebaseManager.shared.getDocuments(type: Post.self, forCollection: .posts) { result in
+        FirebaseManager.shared.listenCollectionChanges(type: Post.self, collection: .posts) { result in
             switch result {
             case.success(let postsResult):
                 self.posts = postsResult

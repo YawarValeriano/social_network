@@ -18,13 +18,12 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(showOptionsAlert))
         setupTable()
-//        initData()
+        initData()
 
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        initData()
     }
 
     func initData() {
@@ -42,9 +41,6 @@ class HomeViewController: UIViewController {
         postTableView.register(UINib(nibName: PostTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: PostTableViewCell.identifier)
         postTableView.delegate = self
         postTableView.dataSource = self
-//        postTableView.rowHeight = UITableView.automaticDimension
-//        postTableView.estimatedRowHeight = 300
-
     }
 
     @IBAction func addPostButton(_ sender: Any) {
@@ -59,7 +55,8 @@ class HomeViewController: UIViewController {
             let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
             sheet.addAction(UIAlertAction(title: "My Posts", style: .default) { _ in
-                print("Show My posts")
+                let vc = UserPostsViewController()
+                self.show(vc, sender: nil)
             })
 
             sheet.addAction(UIAlertAction(title: "Friend Requests", style: .default) { _ in
@@ -93,7 +90,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as? PostTableViewCell else { return UITableViewCell() }
         let post = homeViewModel.getPostBy(index: indexPath.row)
         cell.post = post
-        cell.setTableCell()
+        cell.setTableCell(isForEditting: false, context: self)
         return cell
     }
 }

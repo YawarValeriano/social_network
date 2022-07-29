@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import Firebase
 
-extension Date {
+extension Timestamp {
 
     func toString(stringFormat: String) -> String {
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.dateFormat = stringFormat
-        return dateFormatterPrint.string(from: self)
+        return dateFormatterPrint.string(from: self.dateValue())
     }
 }

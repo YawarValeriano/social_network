@@ -31,7 +31,7 @@ class SignUpViewController: UIViewController {
         FirebaseAuthManager.shared.signUp(email: email, password: password, username: username, city: city, userStatus: status) { result in
             switch result {
             case.success(let user):
-                print(user.id)
+                print(user.id!)
             case.failure(let error):
                 ErrorHandler.shared.showError(withDescription: error.localizedDescription, viewController: self)
             }

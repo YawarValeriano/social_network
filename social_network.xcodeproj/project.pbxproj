@@ -18,7 +18,6 @@
 		841C831A286D5BB100E4E710 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C8310286D5BB100E4E710 /* User.swift */; };
 		841C831B286D5BB100E4E710 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841C8311286D5BB100E4E710 /* BaseModel.swift */; };
 		849E443B287E6AD80052E7A3 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E443A287E6AD80052E7A3 /* ErrorHandler.swift */; };
-		849E4441287EF39D0052E7A3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E4440287EF39D0052E7A3 /* Category.swift */; };
 		849E4443287EF4610052E7A3 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E4442287EF4610052E7A3 /* Post.swift */; };
 		849E44552880D3010052E7A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849E44542880D3000052E7A3 /* Main.storyboard */; };
 		849E445C2880E9F20052E7A3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E445A2880E9F20052E7A3 /* LoginViewController.swift */; };
@@ -42,6 +41,17 @@
 		84A2267B287E4738001F3881 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2267A287E4738001F3881 /* LoginViewModel.swift */; };
 		84A22682287E5470001F3881 /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A22681287E5470001F3881 /* SignUpView.xib */; };
 		84A22684287E5656001F3881 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A22683287E5656001F3881 /* SignUpViewController.swift */; };
+		84C37095288A586800B930E5 /* UserPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C37093288A586800B930E5 /* UserPostsViewController.swift */; };
+		84C37096288A586800B930E5 /* UserPostsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C37094288A586800B930E5 /* UserPostsViewController.xib */; };
+		84C370AE288F521D00B930E5 /* UserPostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C370AD288F521D00B930E5 /* UserPostsViewModel.swift */; };
+		84C370B6289015C100B930E5 /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C370B4289015C100B930E5 /* UserListTableViewCell.swift */; };
+		84C370B7289015C100B930E5 /* UserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C370B5289015C100B930E5 /* UserListTableViewCell.xib */; };
+		84C370C02890B4B300B930E5 /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C370BE2890B4B300B930E5 /* SearchFriendsViewController.swift */; };
+		84C370C12890B4B300B930E5 /* SearchFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C370BF2890B4B300B930E5 /* SearchFriendsViewController.xib */; };
+		84C370C32890B68D00B930E5 /* SearchFriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C370C22890B68D00B930E5 /* SearchFriendsViewModel.swift */; };
+		84C370CA2890ECF400B930E5 /* PublicProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C370C82890ECF400B930E5 /* PublicProfileViewController.swift */; };
+		84C370CB2890ECF400B930E5 /* PublicProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C370C92890ECF400B930E5 /* PublicProfileViewController.xib */; };
+		84C370CD2890ED5200B930E5 /* PublicProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C370CC2890ED5200B930E5 /* PublicProfileViewModel.swift */; };
 		84D00E382885A6EC00B0CA9B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 84D00E372885A6EC00B0CA9B /* FirebaseAuth */; };
 		84D00E3A2885A6EC00B0CA9B /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 84D00E392885A6EC00B0CA9B /* FirebaseFirestoreSwift */; };
 		84D00E3C2885A6EC00B0CA9B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 84D00E3B2885A6EC00B0CA9B /* FirebaseStorage */; };
@@ -66,11 +76,10 @@
 		841C82CF286C9A5700E4E710 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		841C82DC286CDF0D00E4E710 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		841C8309286D5BB100E4E710 /* EncodableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
-		841C830D286D5BB100E4E710 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		841C830D286D5BB100E4E710 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		841C8310286D5BB100E4E710 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		841C8311286D5BB100E4E710 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		849E443A287E6AD80052E7A3 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
-		849E4440287EF39D0052E7A3 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		849E4442287EF4610052E7A3 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		849E44542880D3000052E7A3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		849E445A2880E9F20052E7A3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +103,17 @@
 		84A2267A287E4738001F3881 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		84A22681287E5470001F3881 /* SignUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
 		84A22683287E5656001F3881 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		84C37093288A586800B930E5 /* UserPostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostsViewController.swift; sourceTree = "<group>"; };
+		84C37094288A586800B930E5 /* UserPostsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPostsViewController.xib; sourceTree = "<group>"; };
+		84C370AD288F521D00B930E5 /* UserPostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostsViewModel.swift; sourceTree = "<group>"; };
+		84C370B4289015C100B930E5 /* UserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
+		84C370B5289015C100B930E5 /* UserListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListTableViewCell.xib; sourceTree = "<group>"; };
+		84C370BE2890B4B300B930E5 /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
+		84C370BF2890B4B300B930E5 /* SearchFriendsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchFriendsViewController.xib; sourceTree = "<group>"; };
+		84C370C22890B68D00B930E5 /* SearchFriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewModel.swift; sourceTree = "<group>"; };
+		84C370C82890ECF400B930E5 /* PublicProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProfileViewController.swift; sourceTree = "<group>"; };
+		84C370C92890ECF400B930E5 /* PublicProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublicProfileViewController.xib; sourceTree = "<group>"; };
+		84C370CC2890ED5200B930E5 /* PublicProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProfileViewModel.swift; sourceTree = "<group>"; };
 		84D00E3D28864DF400B0CA9B /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		84D00E4328865A9A00B0CA9B /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		84D00E4428865A9A00B0CA9B /* PostDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailViewController.xib; sourceTree = "<group>"; };
@@ -174,6 +194,8 @@
 		841C8305286D5BB100E4E710 /* modules */ = {
 			isa = PBXGroup;
 			children = (
+				84C370C42890EC5200B930E5 /* userProfile */,
+				84C3708F288A550A00B930E5 /* userPostList */,
 				84D00E3F288654BC00B0CA9B /* postDetail */,
 				849E446E2880F4A00052E7A3 /* faqs */,
 				849E44682880F46F0052E7A3 /* chat */,
@@ -237,7 +259,6 @@
 			children = (
 				841C8310286D5BB100E4E710 /* User.swift */,
 				841C8311286D5BB100E4E710 /* BaseModel.swift */,
-				849E4440287EF39D0052E7A3 /* Category.swift */,
 				849E4442287EF4610052E7A3 /* Post.swift */,
 			);
 			path = models;
@@ -321,7 +342,8 @@
 		849E44622880F4320052E7A3 /* friends */ = {
 			isa = PBXGroup;
 			children = (
-				849E44632880F44E0052E7A3 /* controller */,
+				84C370B0289014A500B930E5 /* searchFriends */,
+				84C370B1289014BA00B930E5 /* userFriends */,
 			);
 			path = friends;
 			sourceTree = "<group>";
@@ -329,8 +351,8 @@
 		849E44632880F44E0052E7A3 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				849E44642880F4690052E7A3 /* FriendsViewController.swift */,
 				849E44652880F4690052E7A3 /* FriendsViewController.xib */,
+				849E44642880F4690052E7A3 /* FriendsViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -372,6 +394,7 @@
 		849E4475288103830052E7A3 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				84C370B32890158400B930E5 /* userListViewCell */,
 				849E4476288103AC0052E7A3 /* FloatingActionButton.swift */,
 			);
 			path = views;
@@ -444,6 +467,117 @@
 			children = (
 			);
 			path = viewModel;
+			sourceTree = "<group>";
+		};
+		84C3708F288A550A00B930E5 /* userPostList */ = {
+			isa = PBXGroup;
+			children = (
+				84C37092288A55FA00B930E5 /* view */,
+				84C37091288A55DC00B930E5 /* controller */,
+				84C37090288A55CF00B930E5 /* viewModel */,
+			);
+			path = userPostList;
+			sourceTree = "<group>";
+		};
+		84C37090288A55CF00B930E5 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84C370AD288F521D00B930E5 /* UserPostsViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
+		84C37091288A55DC00B930E5 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				84C37093288A586800B930E5 /* UserPostsViewController.swift */,
+				84C37094288A586800B930E5 /* UserPostsViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		84C37092288A55FA00B930E5 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		84C370B0289014A500B930E5 /* searchFriends */ = {
+			isa = PBXGroup;
+			children = (
+				84C370BD2890B44D00B930E5 /* viewModel */,
+				84C370B2289014C700B930E5 /* controller */,
+			);
+			path = searchFriends;
+			sourceTree = "<group>";
+		};
+		84C370B1289014BA00B930E5 /* userFriends */ = {
+			isa = PBXGroup;
+			children = (
+				849E44632880F44E0052E7A3 /* controller */,
+			);
+			path = userFriends;
+			sourceTree = "<group>";
+		};
+		84C370B2289014C700B930E5 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				84C370BE2890B4B300B930E5 /* SearchFriendsViewController.swift */,
+				84C370BF2890B4B300B930E5 /* SearchFriendsViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		84C370B32890158400B930E5 /* userListViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				84C370B4289015C100B930E5 /* UserListTableViewCell.swift */,
+				84C370B5289015C100B930E5 /* UserListTableViewCell.xib */,
+			);
+			path = userListViewCell;
+			sourceTree = "<group>";
+		};
+		84C370BD2890B44D00B930E5 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84C370C22890B68D00B930E5 /* SearchFriendsViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
+		84C370C42890EC5200B930E5 /* userProfile */ = {
+			isa = PBXGroup;
+			children = (
+				84C370C52890EC8300B930E5 /* publicProfile */,
+			);
+			path = userProfile;
+			sourceTree = "<group>";
+		};
+		84C370C52890EC8300B930E5 /* publicProfile */ = {
+			isa = PBXGroup;
+			children = (
+				84C370C72890ECB800B930E5 /* controller */,
+				84C370C62890ECA600B930E5 /* viewModel */,
+			);
+			path = publicProfile;
+			sourceTree = "<group>";
+		};
+		84C370C62890ECA600B930E5 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84C370CC2890ED5200B930E5 /* PublicProfileViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
+		84C370C72890ECB800B930E5 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				84C370C82890ECF400B930E5 /* PublicProfileViewController.swift */,
+				84C370C92890ECF400B930E5 /* PublicProfileViewController.xib */,
+			);
+			path = controller;
 			sourceTree = "<group>";
 		};
 		84D00E3F288654BC00B0CA9B /* postDetail */ = {
@@ -565,11 +699,15 @@
 				849E446C2880F4840052E7A3 /* ChatViewController.xib in Resources */,
 				841C82DD286CDF0D00E4E710 /* GoogleService-Info.plist in Resources */,
 				841C82CB286C9A5700E4E710 /* Assets.xcassets in Resources */,
+				84C37096288A586800B930E5 /* UserPostsViewController.xib in Resources */,
+				84C370B7289015C100B930E5 /* UserListTableViewCell.xib in Resources */,
 				849E44672880F4690052E7A3 /* FriendsViewController.xib in Resources */,
 				849E445D2880E9F20052E7A3 /* LoginViewController.xib in Resources */,
 				849E44612880F4050052E7A3 /* HomeViewController.xib in Resources */,
 				84A22682287E5470001F3881 /* SignUpView.xib in Resources */,
+				84C370C12890B4B300B930E5 /* SearchFriendsViewController.xib in Resources */,
 				849E44742880F4D80052E7A3 /* FaqsViewController.xib in Resources */,
+				84C370CB2890ECF400B930E5 /* PublicProfileViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,7 +762,7 @@
 			files = (
 				841C8318286D5BB100E4E710 /* FirebaseManager.swift in Sources */,
 				849E44732880F4D80052E7A3 /* FaqsViewController.swift in Sources */,
-				849E4441287EF39D0052E7A3 /* Category.swift in Sources */,
+				84C370CD2890ED5200B930E5 /* PublicProfileViewModel.swift in Sources */,
 				849E448128811F5F0052E7A3 /* HomeViewModel.swift in Sources */,
 				84D00E4D2888293100B0CA9B /* DeviceImageViewController.swift in Sources */,
 				84D00E4B2887645B00B0CA9B /* PostDetailViewModel.swift in Sources */,
@@ -634,21 +772,27 @@
 				841C82C1286C9A5500E4E710 /* SceneDelegate.swift in Sources */,
 				849E4443287EF4610052E7A3 /* Post.swift in Sources */,
 				849E44602880F4050052E7A3 /* HomeViewController.swift in Sources */,
+				84C370AE288F521D00B930E5 /* UserPostsViewModel.swift in Sources */,
 				84A22668287B8AFE001F3881 /* FirebaseAuthManager.swift in Sources */,
 				849E443B287E6AD80052E7A3 /* ErrorHandler.swift in Sources */,
 				849E4477288103AC0052E7A3 /* FloatingActionButton.swift in Sources */,
 				84D00E4528865A9A00B0CA9B /* PostDetailViewController.swift in Sources */,
 				849E445C2880E9F20052E7A3 /* LoginViewController.swift in Sources */,
+				84C370C02890B4B300B930E5 /* SearchFriendsViewController.swift in Sources */,
+				84C37095288A586800B930E5 /* UserPostsViewController.swift in Sources */,
 				841C8317286D5BB100E4E710 /* EncodableExtension.swift in Sources */,
+				84C370B6289015C100B930E5 /* UserListTableViewCell.swift in Sources */,
 				84A2267B287E4738001F3881 /* LoginViewModel.swift in Sources */,
 				84A2266A287B934F001F3881 /* ErrorEnum.swift in Sources */,
 				84D00E49288758B400B0CA9B /* CategoriesEnum.swift in Sources */,
 				849E447B2881089B0052E7A3 /* PostTableViewCell.swift in Sources */,
 				84A22684287E5656001F3881 /* SignUpViewController.swift in Sources */,
 				849E44662880F4690052E7A3 /* FriendsViewController.swift in Sources */,
+				84C370C32890B68D00B930E5 /* SearchFriendsViewModel.swift in Sources */,
 				841C82C9286C9A5500E4E710 /* social_network.xcdatamodeld in Sources */,
 				841C831B286D5BB100E4E710 /* BaseModel.swift in Sources */,
 				841C831A286D5BB100E4E710 /* User.swift in Sources */,
+				84C370CA2890ECF400B930E5 /* PublicProfileViewController.swift in Sources */,
 				84A2266C287BA955001F3881 /* FirebaseUserManager.swift in Sources */,
 				849E446B2880F4840052E7A3 /* ChatViewController.swift in Sources */,
 			);

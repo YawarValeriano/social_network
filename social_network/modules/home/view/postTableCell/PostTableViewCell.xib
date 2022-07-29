@@ -82,6 +82,9 @@
                                         <rect key="frame" x="285" y="0.0" width="94" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Comments"/>
+                                        <connections>
+                                            <action selector="sendToNextView:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Uzd-aa-Ord"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -117,6 +120,7 @@
                 <outlet property="commentSummaryLabel" destination="eMe-Ea-qcU" id="IOw-hM-1Jc"/>
                 <outlet property="descriptionLabel" destination="uGH-Z6-Co3" id="OUc-V9-m9c"/>
                 <outlet property="imageHeight" destination="gXE-dT-j2z" id="XEb-pL-Vpx"/>
+                <outlet property="postActionButton" destination="sET-w3-5Zk" id="vgT-kc-OCf"/>
                 <outlet property="postDateLabel" destination="bRR-lr-CFf" id="JgQ-8b-poa"/>
                 <outlet property="postImageView" destination="50b-ai-KMd" id="0DG-en-BMO"/>
                 <outlet property="topStackConstraint" destination="BoK-sA-HjO" id="4ob-GR-kNO"/>

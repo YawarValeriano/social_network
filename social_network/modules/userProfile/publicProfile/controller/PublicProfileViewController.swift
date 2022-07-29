@@ -1,13 +1,13 @@
 //
-//  FriendsViewController.swift
+//  PublicProfileViewController.swift
 //  social_network
 //
-//  Created by admin on 7/14/22.
+//  Created by admin on 7/26/22.
 //
 
 import UIKit
 
-class FriendsViewController: UIViewController {
+class PublicProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

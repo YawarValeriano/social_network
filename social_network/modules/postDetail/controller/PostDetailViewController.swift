@@ -84,6 +84,16 @@ class PostDetailViewController: UIViewController {
                     ErrorHandler.shared.showError(withDescription: error.localizedDescription, viewController: self)
                 }
             }
+        } else {
+            postDetailViewModel.updatePost(documentId: post!.id!, urlMovie: movieUrlField.text, description: descriptionTextView.text, category: selectedCategory, oldUrlImage: post?.urlImage, hasChangedImage: hasChangedImage, imageData: postImageView.image!.jpegData(compressionQuality: 0.5)!) { result in
+                switch result {
+                case.success(()):
+                    self.navigationController?.popViewController(animated: true)
+                    self.dismiss(animated: true)
+                case.failure(let error):
+                    ErrorHandler.shared.showError(withDescription: error.localizedDescription, viewController: self)
+                }
+            }
         }
     }
 
