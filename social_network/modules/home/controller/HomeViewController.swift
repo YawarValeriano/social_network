@@ -67,11 +67,13 @@ class HomeViewController: UIViewController {
                 print("Show profile")
             })
             
-            sheet.addAction(UIAlertAction(title: "Log Out", style: .cancel, handler: { _ in
+            sheet.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { _ in
                 FirebaseAuthManager.shared.signOut { error in
                     print(error)
                 }
             }))
+
+            sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
 
             self.navigationController?.present(sheet, animated: true, completion: nil)
 
