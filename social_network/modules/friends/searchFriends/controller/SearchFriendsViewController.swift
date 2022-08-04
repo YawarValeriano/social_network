@@ -46,5 +46,10 @@ extension SearchFriendsViewController: UITableViewDataSource, UITableViewDelegat
         return cell
     }
 
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let user = viewModel.getUserFor(index: indexPath.row)
+        let vc = PublicProfileViewController()
+        vc.user = user
+        show(vc, sender: nil)
+    }
 }

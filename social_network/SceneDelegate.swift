@@ -54,7 +54,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
             createNavController(for: ChatViewController(), title: "Chat", image: UIImage(systemName: "message.fill")!),
 
-            createNavController(for: FaqsViewController(), title: "FAQ's", image: UIImage(systemName: "questionmark.diamond.fill")!)
         ]
 
         return tabBarVC

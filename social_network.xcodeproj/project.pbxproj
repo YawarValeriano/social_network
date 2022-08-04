@@ -52,6 +52,9 @@
 		84C370CA2890ECF400B930E5 /* PublicProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C370C82890ECF400B930E5 /* PublicProfileViewController.swift */; };
 		84C370CB2890ECF400B930E5 /* PublicProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C370C92890ECF400B930E5 /* PublicProfileViewController.xib */; };
 		84C370CD2890ED5200B930E5 /* PublicProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C370CC2890ED5200B930E5 /* PublicProfileViewModel.swift */; };
+		84C370CF289735DC00B930E5 /* FriendRequestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C370CE289735DC00B930E5 /* FriendRequestStatus.swift */; };
+		84C370D12897375900B930E5 /* FriendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C370D02897375900B930E5 /* FriendRequest.swift */; };
+		84C370D428977E0F00B930E5 /* FriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C370D328977E0F00B930E5 /* FriendsViewModel.swift */; };
 		84D00E382885A6EC00B0CA9B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 84D00E372885A6EC00B0CA9B /* FirebaseAuth */; };
 		84D00E3A2885A6EC00B0CA9B /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 84D00E392885A6EC00B0CA9B /* FirebaseFirestoreSwift */; };
 		84D00E3C2885A6EC00B0CA9B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 84D00E3B2885A6EC00B0CA9B /* FirebaseStorage */; };
@@ -114,6 +117,9 @@
 		84C370C82890ECF400B930E5 /* PublicProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProfileViewController.swift; sourceTree = "<group>"; };
 		84C370C92890ECF400B930E5 /* PublicProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublicProfileViewController.xib; sourceTree = "<group>"; };
 		84C370CC2890ED5200B930E5 /* PublicProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProfileViewModel.swift; sourceTree = "<group>"; };
+		84C370CE289735DC00B930E5 /* FriendRequestStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestStatus.swift; sourceTree = "<group>"; };
+		84C370D02897375900B930E5 /* FriendRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequest.swift; sourceTree = "<group>"; };
+		84C370D328977E0F00B930E5 /* FriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewModel.swift; sourceTree = "<group>"; };
 		84D00E3D28864DF400B0CA9B /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		84D00E4328865A9A00B0CA9B /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		84D00E4428865A9A00B0CA9B /* PostDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailViewController.xib; sourceTree = "<group>"; };
@@ -260,6 +266,7 @@
 				841C8310286D5BB100E4E710 /* User.swift */,
 				841C8311286D5BB100E4E710 /* BaseModel.swift */,
 				849E4442287EF4610052E7A3 /* Post.swift */,
+				84C370D02897375900B930E5 /* FriendRequest.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -515,6 +522,7 @@
 		84C370B1289014BA00B930E5 /* userFriends */ = {
 			isa = PBXGroup;
 			children = (
+				84C370D228977DE300B930E5 /* viewModel */,
 				849E44632880F44E0052E7A3 /* controller */,
 			);
 			path = userFriends;
@@ -580,6 +588,14 @@
 			path = controller;
 			sourceTree = "<group>";
 		};
+		84C370D228977DE300B930E5 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84C370D328977E0F00B930E5 /* FriendsViewModel.swift */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
 		84D00E3F288654BC00B0CA9B /* postDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -620,6 +636,7 @@
 			children = (
 				849E443A287E6AD80052E7A3 /* ErrorHandler.swift */,
 				84D00E48288758B400B0CA9B /* CategoriesEnum.swift */,
+				84C370CE289735DC00B930E5 /* FriendRequestStatus.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -769,10 +786,13 @@
 				849E447F288114130052E7A3 /* ImageManager.swift in Sources */,
 				84D00E3E28864DF400B0CA9B /* DateExtension.swift in Sources */,
 				841C82BF286C9A5500E4E710 /* AppDelegate.swift in Sources */,
+				84C370D12897375900B930E5 /* FriendRequest.swift in Sources */,
 				841C82C1286C9A5500E4E710 /* SceneDelegate.swift in Sources */,
 				849E4443287EF4610052E7A3 /* Post.swift in Sources */,
 				849E44602880F4050052E7A3 /* HomeViewController.swift in Sources */,
 				84C370AE288F521D00B930E5 /* UserPostsViewModel.swift in Sources */,
+				84C370D428977E0F00B930E5 /* FriendsViewModel.swift in Sources */,
+				84C370CF289735DC00B930E5 /* FriendRequestStatus.swift in Sources */,
 				84A22668287B8AFE001F3881 /* FirebaseAuthManager.swift in Sources */,
 				849E443B287E6AD80052E7A3 /* ErrorHandler.swift in Sources */,
 				849E4477288103AC0052E7A3 /* FloatingActionButton.swift in Sources */,

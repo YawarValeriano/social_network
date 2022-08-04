@@ -11,7 +11,7 @@ import FirebaseAuth
 class FirebaseAuthManager {
     static let shared = FirebaseAuthManager()
 
-    private let auth = Auth.auth()
+    let auth = Auth.auth()
 
     func checkUserLoggedIn(completion: @escaping(Result<Void, Error>) -> Void) {
         auth.addStateDidChangeListener() { auth, user in
@@ -24,10 +24,13 @@ class FirebaseAuthManager {
     }
 
     func signIn(email: String, password: String, completion: @escaping(Result<Void, Error>) -> Void) {
-        auth.signIn(withEmail: email, password: password) { _, error in
+        auth.signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            guard let strongSelf = self else { return }
+
             if let error = error {
                 completion(.failure(error))
             }
+            print(strongSelf.auth.currentUser?.uid ?? "no user")
             completion(.success(()))
         }
     }
