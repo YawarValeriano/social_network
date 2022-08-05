@@ -84,6 +84,9 @@ class PublicProfileViewController: UIViewController {
     }
 
     private func sendRequest(requestToSend: FriendRequest) {
+        if requestToSend.status == .Accepted {
+            FirebaseUserManager.shared.addChat(users: [])
+        }
         FirebaseManager.shared.addDocument(document: requestToSend, docId: requestToSend.id!, collection: .friendRequests) { result in
             switch result {
             case.failure(let error):

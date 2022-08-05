@@ -7,9 +7,12 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseFirestore
 
 class FirebaseAuthManager {
     static let shared = FirebaseAuthManager()
+    static let nameUserKey = "name_key"
+    static let urlImageKey = "url_key"
 
     let auth = Auth.auth()
 
@@ -63,6 +66,19 @@ class FirebaseAuthManager {
             try auth.signOut()
         } catch let error {
             errorMsg(error.localizedDescription)
+        }
+    }
+
+    func saveUserData() {
+        FirebaseUserManager.shared.getCurrentUser { result in
+            switch result {
+            case.success(let currUser):
+                UserDefaults.standard.set(currUser.imageUrl, forKey: FirebaseAuthManager.urlImageKey)
+                UserDefaults.standard.set(currUser.username, forKey: FirebaseAuthManager.nameUserKey)
+                print(currUser)
+            case.failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
 

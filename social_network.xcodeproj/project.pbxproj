@@ -41,6 +41,9 @@
 		84A2267B287E4738001F3881 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A2267A287E4738001F3881 /* LoginViewModel.swift */; };
 		84A22682287E5470001F3881 /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A22681287E5470001F3881 /* SignUpView.xib */; };
 		84A22684287E5656001F3881 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A22683287E5656001F3881 /* SignUpViewController.swift */; };
+		84BCA258289C6FB10046994B /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BCA257289C6FB10046994B /* Chat.swift */; };
+		84BCA25D289DA11B0046994B /* PostShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BCA25B289DA11B0046994B /* PostShowViewController.swift */; };
+		84BCA25E289DA11B0046994B /* PostShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BCA25C289DA11B0046994B /* PostShowViewController.xib */; };
 		84C37095288A586800B930E5 /* UserPostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C37093288A586800B930E5 /* UserPostsViewController.swift */; };
 		84C37096288A586800B930E5 /* UserPostsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84C37094288A586800B930E5 /* UserPostsViewController.xib */; };
 		84C370AE288F521D00B930E5 /* UserPostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C370AD288F521D00B930E5 /* UserPostsViewModel.swift */; };
@@ -106,6 +109,9 @@
 		84A2267A287E4738001F3881 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		84A22681287E5470001F3881 /* SignUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
 		84A22683287E5656001F3881 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		84BCA257289C6FB10046994B /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		84BCA25B289DA11B0046994B /* PostShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostShowViewController.swift; sourceTree = "<group>"; };
+		84BCA25C289DA11B0046994B /* PostShowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostShowViewController.xib; sourceTree = "<group>"; };
 		84C37093288A586800B930E5 /* UserPostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostsViewController.swift; sourceTree = "<group>"; };
 		84C37094288A586800B930E5 /* UserPostsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserPostsViewController.xib; sourceTree = "<group>"; };
 		84C370AD288F521D00B930E5 /* UserPostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostsViewModel.swift; sourceTree = "<group>"; };
@@ -200,6 +206,7 @@
 		841C8305286D5BB100E4E710 /* modules */ = {
 			isa = PBXGroup;
 			children = (
+				84BCA259289DA0F30046994B /* postShow */,
 				84C370C42890EC5200B930E5 /* userProfile */,
 				84C3708F288A550A00B930E5 /* userPostList */,
 				84D00E3F288654BC00B0CA9B /* postDetail */,
@@ -267,6 +274,7 @@
 				841C8311286D5BB100E4E710 /* BaseModel.swift */,
 				849E4442287EF4610052E7A3 /* Post.swift */,
 				84C370D02897375900B930E5 /* FriendRequest.swift */,
+				84BCA257289C6FB10046994B /* Chat.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -474,6 +482,23 @@
 			children = (
 			);
 			path = viewModel;
+			sourceTree = "<group>";
+		};
+		84BCA259289DA0F30046994B /* postShow */ = {
+			isa = PBXGroup;
+			children = (
+				84BCA25A289DA1000046994B /* controller */,
+			);
+			path = postShow;
+			sourceTree = "<group>";
+		};
+		84BCA25A289DA1000046994B /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				84BCA25B289DA11B0046994B /* PostShowViewController.swift */,
+				84BCA25C289DA11B0046994B /* PostShowViewController.xib */,
+			);
+			path = controller;
 			sourceTree = "<group>";
 		};
 		84C3708F288A550A00B930E5 /* userPostList */ = {
@@ -713,6 +738,7 @@
 				84D00E4628865A9A00B0CA9B /* PostDetailViewController.xib in Resources */,
 				841C82CE286C9A5700E4E710 /* LaunchScreen.storyboard in Resources */,
 				849E447C2881089B0052E7A3 /* PostTableViewCell.xib in Resources */,
+				84BCA25E289DA11B0046994B /* PostShowViewController.xib in Resources */,
 				849E446C2880F4840052E7A3 /* ChatViewController.xib in Resources */,
 				841C82DD286CDF0D00E4E710 /* GoogleService-Info.plist in Resources */,
 				841C82CB286C9A5700E4E710 /* Assets.xcassets in Resources */,
@@ -790,6 +816,7 @@
 				841C82C1286C9A5500E4E710 /* SceneDelegate.swift in Sources */,
 				849E4443287EF4610052E7A3 /* Post.swift in Sources */,
 				849E44602880F4050052E7A3 /* HomeViewController.swift in Sources */,
+				84BCA258289C6FB10046994B /* Chat.swift in Sources */,
 				84C370AE288F521D00B930E5 /* UserPostsViewModel.swift in Sources */,
 				84C370D428977E0F00B930E5 /* FriendsViewModel.swift in Sources */,
 				84C370CF289735DC00B930E5 /* FriendRequestStatus.swift in Sources */,
@@ -805,6 +832,7 @@
 				84A2267B287E4738001F3881 /* LoginViewModel.swift in Sources */,
 				84A2266A287B934F001F3881 /* ErrorEnum.swift in Sources */,
 				84D00E49288758B400B0CA9B /* CategoriesEnum.swift in Sources */,
+				84BCA25D289DA11B0046994B /* PostShowViewController.swift in Sources */,
 				849E447B2881089B0052E7A3 /* PostTableViewCell.swift in Sources */,
 				84A22684287E5656001F3881 /* SignUpViewController.swift in Sources */,
 				849E44662880F4690052E7A3 /* FriendsViewController.swift in Sources */,

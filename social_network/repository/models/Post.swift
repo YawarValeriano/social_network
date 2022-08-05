@@ -11,6 +11,8 @@ import Firebase
 
 struct Post: Codable, BaseModel {
     @DocumentID var id: String?
+    var userPic: String
+    var userName: String
     var	userId: String
     var urlMovie: String?
     var urlImage: String?

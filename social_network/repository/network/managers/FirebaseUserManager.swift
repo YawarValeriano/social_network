@@ -31,9 +31,7 @@ class FirebaseUserManager {
 
             if let document = document, document.exists {
                 do {
-                    let json = JSONDecoder()
-                    let data = try JSONSerialization.data(withJSONObject: document.data() ?? [], options: [])
-                    let item = try json.decode(User.self, from: data)
+                    let item = try document.data(as: User.self)
                     completion(.success(item))
                 } catch let error {
                     completion(.failure(error))
@@ -77,16 +75,43 @@ class FirebaseUserManager {
 
     func getAcceptedFriendRequest(completion: @escaping (Result<[User], Error>) -> Void) {
         let user = getUserUid()
-        db.collection(FirebaseCollections.friendRequests.rawValue).whereField("participants", arrayContains: user).addSnapshotListener { querySnapshot, error in
+        db.collection(FirebaseCollections.friendRequests.rawValue).whereField("status", isEqualTo: FriendRequestStatus.Accepted.rawValue).addSnapshotListener { querySnapshot, error in
             guard error == nil else { return completion(.failure(error!)) }
             guard let documents = querySnapshot?.documents else { return completion(.success([])) }
             var items = [User]()
             for document in documents {
-                if let item = try? document.data(as: User.self) {
-                    items.append(item)
+                if let item = try? document.data(as: FriendRequest.self) {
+                    let friendId = item.participants.first { $0 != user }
+                    self.db.collection(FirebaseCollections.users.rawValue).document(friendId!).getDocument { (document, error) in
+                        guard error == nil else {
+                            completion(.failure(FirebaseError.errorInFirebase))
+                            return
+                        }
+
+                        if let documentUser = document, documentUser.exists {
+                            do {
+                                let userAux = try documentUser.data(as: User.self)
+                                items.append(userAux)
+                            } catch let error {
+                                completion(.failure(error))
+                            }
+
+                        } else {
+                            completion(.failure(FirebaseError.noDocument))
+                        }
+                    }
                 }
             }
             completion(.success(items))
+
         }
+    }
+
+    func addChat(users: [User]) {
+        db.collection(FirebaseCollections.chats.rawValue).addDocument(data: [
+            "participantsId": [users[0].id!, users[1].id!],
+            "participants": users.dict!,
+            "lastMsg": "",
+        ])
     }
 }

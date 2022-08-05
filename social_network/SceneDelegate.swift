@@ -24,6 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         FirebaseAuthManager.shared.checkUserLoggedIn { result in
             switch result {
             case .success(()):
+                FirebaseAuthManager.shared.saveUserData()
                 let rootViewController = self.getRootViewControllerForValidUser()
                 self.window?.rootViewController = rootViewController
             case .failure:

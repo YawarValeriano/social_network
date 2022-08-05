@@ -34,6 +34,7 @@ class PostTableViewCell: UITableViewCell {
         borderView.layer.borderWidth = 1
         borderView.layer.cornerRadius = 5
         postImageView.layer.cornerRadius = 15
+        userImageView.layer.cornerRadius = userImageView.bounds.width/2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -45,9 +46,12 @@ class PostTableViewCell: UITableViewCell {
         buttonIsForEditting = isForEditting
         postActionButton.setTitle(isForEditting ? "Edit Post" : "Comments", for: .normal)
         guard let cellPost = self.post else { return }
-        self.userNameLabel.text = "User name"
+        self.userNameLabel.text = cellPost.userName
         self.descriptionLabel.text = cellPost.description
         self.postDateLabel.text = cellPost.createdAt?.toString(stringFormat: "MMM d, yyyy")
+        if let usrUrl = URL(string: cellPost.userPic) {
+            userImageView.image = ImageManager.shared.getUIImage(formURL: usrUrl)
+        }
         guard let image = cellPost.urlImage, let url = URL(string: image) else {
             self.postImageView.isHidden = true
             self.imageHeight.constant = 0
@@ -63,6 +67,10 @@ class PostTableViewCell: UITableViewCell {
         if buttonIsForEditting {
             let vc = PostDetailViewController()
             vc.createNewPost = false
+            vc.post = post
+            parentContext.show(vc, sender: nil)
+        } else {
+            let vc = PostShowViewController()
             vc.post = post
             parentContext.show(vc, sender: nil)
         }
